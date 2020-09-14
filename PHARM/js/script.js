@@ -1,4 +1,4 @@
-// FULTER
+// FILTER
 $(".filter_1").click(function () {
     $(".label").removeClass("filter__toggle2");
     $(".label").removeClass("filter__toggle3");
@@ -19,7 +19,6 @@ $(".filter_3").click(function () {
     $(".label").not(".filter__toggle").toggleClass("filter__toggle3");
     $(".filter_item_3").removeClass("filter__toggle3");
 });
-// FULTER
 
 
 $(".filter__item").click(function () {
@@ -33,6 +32,8 @@ $(".filter__item").click(function () {
         $(".filter__item").removeClass("label__toggle");
     }
 });
+// FILTER
+
 
 // DROPDOWN
 
@@ -84,27 +85,19 @@ gotop.on('click', function (e) {
 
 
 // IBG
-// function ibg() {
-//     $(".ibg").each(function () {
-//         if ($(this).find('source') && $(this).find('source').attr('srcset') != null) {
-//             $(this).css('background-image', 'url(' + $(this).find('source').attr('srcset') + ')');
-//         } else if ($(this).find('.ibg__img') && $(this).find('.ibg__img').attr('src') != null) {
-//             $(this).css('background-image', 'url(' + $(this).find('.ibg__img').attr('src') + ')');
-//         }
-//     });
-//     $(".ibg__img").remove();
-// }
-// $('document').ready(function () {
-//     ibg();
-// });
-
-
+function canUseWebP() {
+    var elem = document.createElement('canvas');
+    if (!!(elem.getContext && elem.getContext('2d'))) {
+        return elem.toDataURL('image/webp').indexOf('data:image/webp') == 0;
+    }
+    return false;
+}
 
 function ibg() {
     $(".ibg").each(function () {
         var elem = document.createElement('canvas');
 
-        if (!!(elem.getContext && elem.getContext('2d'))) {
+        if (canUseWebP()) {
             if ($(this).find('source') && $(this).find('source').attr('srcset') != null) {
                 $(this).css('background-image', 'url(' + $(this).find('source').attr('srcset') + ')');
             }
@@ -114,24 +107,11 @@ function ibg() {
     });
     $(".ibg__img").remove();
 }
+
 $('document').ready(function () {
     ibg();
 });
 
-// function canUseWebP() {
-//     var elem = document.createElement('canvas');
-
-
-//     if (!!(elem.getContext && elem.getContext('2d'))) {
-//         // was able or not to get WebP representation
-//         return elem.toDataURL('image/webp').indexOf('data:image/webp') == 0;
-//     }
-
-
-
-//     // very old browser like IE 8, canvas not supported
-//     return false;
-// }
 // IBG;
 // NAVBAR
 $(document).ready(function (e) {
