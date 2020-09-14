@@ -1,0 +1,422 @@
+.filter {
+
+    .filter__item {
+        @include ratio(638, 251);
+        cursor: pointer;
+        transition: .3s;
+
+        @media all and (max-width:767px) {
+            @include ratio(500, 252);
+        }
+
+        &:hover {
+            background-color: #000;
+
+            .filter__caption {
+                opacity: .7;
+            }
+
+            .filter__title {
+                color: $c_alizarin_crimson;
+            }
+        }
+    }
+
+    .filter__caption {
+        display: flex;
+        align-items: flex-end;
+        transition: .3s;
+    }
+
+    .filter__title {
+        text-align: right;
+        width: 100%;
+        padding: 15px 35px;
+        transition: .3s;
+        color: $c_main;
+        font-family: $f_main;
+        font-size: size(75, 30);
+        font-weight: 300;
+    }
+
+    .filter__header {
+        height: 130px;
+        background-color: $_silver_light;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+    }
+
+    .filter__tab {
+        padding: 5px size(30, 15);
+        border-radius: 20px 20px 0 0;
+        font-family: $f_secondary;
+        font-size: size(50, 20);
+        font-weight: 400;
+        color: #a0a0a0;
+
+        @media all and (max-width:992px) {
+            font-weight: 300;
+        }
+    }
+
+    .tab__active {
+        color: $c_alizarin_crimson;
+        background-color: #fff;
+    }
+
+    .filter__body {
+        padding: 45px 0;
+    }
+
+    .filter__body-row {
+        @media all and (max-width:$md3) {
+            &:nth-child(2n+1) .filter__name-wrap {
+                background-color: $_silver_light;
+            }
+        }
+
+    }
+
+    .filter__name-wrap {
+        @include flex(4);
+        padding: 27px size(80, 40) 0 0;
+
+        svg {
+            width: 70px;
+            height: 70px;
+        }
+
+        @media all and (max-width:$md3) {
+            @include flex(1);
+            display: flex;
+            padding: 15px;
+        }
+    }
+
+    .filter__name {
+        font-family: $f_main;
+        font-size: 20px;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        text-align: end;
+        height: 75px;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .filter__row {
+        padding: 27px 0;
+    }
+}
+
+.filter__labels {
+    display: flex;
+
+    @media all and (max-width:$md3) {
+        display: none;
+    }
+}
+
+.label {
+    border-radius: 10px;
+    height: 75px;
+    max-width: 228px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    transition: .3s;
+
+    &:hover {
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+        transform: scale(1.05);
+
+        svg {
+            transform: scale(1.1);
+        }
+    }
+
+    .label__text {
+        width: 100%;
+        height: 100%;
+        padding: 0 50px 0 15px;
+        flex: 1 1 0;
+        display: flex;
+        align-items: center;
+        border-radius: 10px;
+    }
+
+    .label__title {
+        color: #fff;
+        text-transform: uppercase;
+        font-family: $f_main;
+        font-size: 16px;
+        max-width: 90%;
+    }
+
+
+    .label__icon {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        height: 110%;
+        transform: translate(50%, -50%);
+        z-index: 1;
+
+        svg {
+            height: 100%;
+            width: 82px;
+            transition: .3s;
+        }
+    }
+}
+
+.label__new {
+    border-top-left-radius: 0;
+
+    &::before {
+        content: 'NEW!';
+        position: absolute;
+        bottom: calc(100% + 3px);
+        left: 0;
+        background-color: orange;
+        color: #fff;
+        font-family: $f_main;
+        font-size: 14px;
+        border-radius: 10px 10px 10px 0;
+        padding: 5px 10px;
+    }
+}
+
+.label__forcast {
+    border-top-left-radius: 0;
+
+    &::before {
+        content: 'СКОРО!';
+        position: absolute;
+        bottom: calc(100% + 3px);
+        left: 0;
+        background-color: greenyellow;
+        color: #fff;
+        font-family: $f_main;
+        font-size: 14px;
+        border-radius: 10px 10px 10px 0;
+        padding: 5px 10px;
+    }
+}
+
+.col-label {
+    padding: 27px 30px;
+    @include flex(3);
+
+    @media all and (max-width:$md1) {
+        @include flex(2);
+    }
+
+    @media all and (max-width:$md3) {
+        @include flex(1);
+    }
+}
+
+.filter__name_daisyBush {
+    color: $c_daisy_bush;
+}
+
+.filter__name_gray {
+    color: $c_gray;
+}
+
+.filter__name_bouquet {
+    color: $c_bouquet;
+}
+
+.filter__name_blueChill {
+    color: $c_blue_chill;
+}
+
+.filter__name_azureRadiance {
+    color: $c_azure_radiance;
+}
+
+.filter__name_cerise {
+    color: $c_cerise;
+}
+
+.filter__name_buttercup {
+    color: $c_buttercup;
+}
+
+.filter__name_lima {
+    color: $c_lima;
+}
+
+.filter__name_turquoise {
+    color: $c_turquoise;
+}
+
+.filter__name_treePoppy {
+    color: $c_tree_poppy;
+}
+
+.filter__name_mantis {
+    color: $c_mantis;
+}
+
+.filter__name_persianBlue {
+    color: $c_persian_blue;
+}
+
+.filter__name_yellow {
+    color: $c_yellow;
+}
+
+.filter__name_deepSeaGreen {
+    color: $c_deep_sea_green;
+}
+
+.filter__name_red {
+    color: $c_red;
+}
+
+.filter__name_thunder {
+    color: $c_thunder;
+}
+
+.filter__name_hopbush {
+    color: $c_hopbush;
+}
+
+.filter__name_bourbon {
+    color: $c_bourbon;
+}
+
+.filter__name_EarlsGreen {
+    color: $c_EarlsGreen;
+}
+
+.filter__name_Jewel {
+    color: $c_Jewel;
+}
+
+.filter__name_Downy {
+    color: $c_Downy;
+}
+
+.filter__name_SanMarino {
+    color: $c_SanMarino;
+}
+
+.filter__name_Sunshade {
+    color: $c_Sunshade;
+}
+
+.filter__name_flamingo {
+    color: $c_flamingo;
+}
+
+// =========================
+.label_daisyBush {
+    background-color: $c_daisy_bush;
+}
+
+.label_gray {
+    background-color: $c_gray;
+}
+
+.label_bouquet {
+    background-color: $c_bouquet;
+}
+
+.label_blueChill {
+    background-color: $c_blue_chill;
+}
+
+.label_azureRadiance {
+    background-color: $c_azure_radiance;
+}
+
+.label_cerise {
+    background-color: $c_cerise;
+}
+
+.label_buttercup {
+    background-color: $c_buttercup;
+}
+
+.label_lima {
+    background-color: $c_lima;
+}
+
+.label_turquoise {
+    background-color: $c_turquoise;
+}
+
+.label_treePoppy {
+    background-color: $c_tree_poppy;
+}
+
+.label_mantis {
+    background-color: $c_mantis;
+}
+
+.label_persianBlue {
+    background-color: $c_persian_blue;
+}
+
+.label_yellow {
+    background-color: $c_yellow;
+}
+
+.label_deepSeaGreen {
+    background-color: $c_deep_sea_green;
+}
+
+.label_red {
+    background-color: $c_red;
+}
+
+.label_tamarillo {
+    background-color: $c_tamarillo;
+}
+
+.label_hopbush {
+    background-color: $c_hopbush;
+}
+
+.label_thunder {
+    background-color: $c_thunder;
+}
+
+.label_bourbon {
+    background-color: $c_bourbon;
+}
+
+.label_EarlsGreen {
+    background-color: $c_EarlsGreen;
+}
+
+.label_Jewel {
+    background-color: $c_Jewel;
+}
+
+.label_Downy {
+    background-color: $c_Downy;
+}
+
+.label_SanMarino {
+    background-color: $c_SanMarino;
+}
+
+.label_Sunshade {
+    background-color: $c_Sunshade;
+}
+
+.label_flamingo {
+    background-color: $c_flamingo;
+}

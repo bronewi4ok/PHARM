@@ -1,0 +1,111 @@
+// DROPDOWN
+.dropdown__togle {
+    position: relative;
+    cursor: pointer;
+}
+
+.dropdown__content {
+
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    width: 100%;
+    display: none;
+    background-color: #fff;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+    padding: size(15, 10) 0;
+
+    a {
+        display: block;
+        padding:10px 15px;
+        font-family: $f_main;
+        font-size: 16px;
+        font-weight: normal;
+        text-transform: uppercase;
+        color: #000;
+        text-align: center;
+
+        &:hover {
+            color: $c_main;
+        }
+    }
+}
+
+// DROPDOWN
+
+
+// FILTER
+.filter__toggle1,
+.filter__toggle2,
+.filter__toggle3 {
+    filter: grayscale(100%);
+    opacity: .7;
+    background-color: #999 !important;
+    pointer-events: none;
+}
+
+.label__toggle {
+    filter: grayscale(100%);
+    opacity: .7;
+    background-color: #999 !important;
+}
+
+
+// FILTER
+
+
+// IBG
+// ==============================
+.ibg {
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    .ibg__img {
+        display: none;
+    }
+}
+
+// ==============================
+// IBG
+
+
+// RIPPLE
+// ==============================
+.ripple {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    vertical-align: middle;
+    z-index: 1;
+    will-change: opacity, transform;
+    transition: all 0.3s ease-out;
+}
+
+.ripple .waves-ripple {
+    position: absolute;
+    border-radius: 50%;
+    width: 3px;
+    height: 3px;
+    margin-top: -10px;
+    margin-left: -10px;
+    opacity: 0;
+    transition: all 1s ease-out;
+    transition-property: transform, opacity;
+    transform: scale(0);
+    pointer-events: none;
+    // box-shadow: 0 0 5px 0 rgba(255, 255, 255, 0.45);
+    // ripple color
+    background-color: rgba(255, 255, 255, 0.45);
+}
+
+/* Firefox Bug: link not triggered */
+a.ripple .waves-ripple {
+    z-index: -1;
+}
+
+// ==============================
+// RIPPLE

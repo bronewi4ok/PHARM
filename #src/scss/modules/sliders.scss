@@ -1,0 +1,59 @@
+// SLIDER
+
+.slider__item {
+    padding: 15px;
+}
+
+.slider__item_shadow {
+    box-shadow: 0 2px 9px 1px rgba(0, 0, 0, 0.2);
+}
+
+
+.slider__captiom {
+    padding: 25px;
+    background-color: #fff;
+}
+
+.slider__title {
+    font-family: $f_main;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 24px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.slider__text {
+    font-family: $f_main;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: center;
+}
+
+/* Slick track */
+.slick-list {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+}
+
+.slick-track {
+    display: flex;
+    height: 100%;
+    min-width: 100% !important;
+    overflow: hidden;
+}
+
+.slick-slide,
+.slick-slide>div {
+    height: 100%;
+}
+
+.slick-disabled {
+    opacity: 0.3;
+}
+
+/* Slick track */
+
+//  SLIDER

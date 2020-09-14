@@ -1,0 +1,205 @@
+// FONT SIZE
+// ====================================================================
+
+@function size($max, $min, $minw: 320px, $maxw: 1600) {
+	@return calc(#{$min} * 1px + (#{$max} - #{$min}) * ((100vw - #{$minw}) / #{$maxw}));
+}
+
+// calc(20px + (50 - 20) * ((100vw - 320px) / (1920 - 320)));
+// ====================================================================
+// FONT SIZE
+
+
+// FLEX COLUMN
+// ====================================================================
+
+@mixin flex($base:2, $cols:1) {
+	flex: 0 1 calc(100% / #{$base} * #{$cols});
+	max-width: calc(100% / #{$base} * #{$cols});
+}
+
+// ====================================================================
+// FLEX COLUMN
+
+
+// ABSOLUTE CENTER
+// ====================================================================
+
+@mixin abs_center($top:50%, $left:50%, $tr_top:-50%, $tr_left: -50%) {
+	position: absolute;
+	top: $top;
+	left: $left;
+	transform: translate($tr_top, $tr_left);
+}
+
+// ====================================================================
+// ABSOLUTE CENTER
+
+
+// ASPECT RATIO
+// ====================================================================
+
+@mixin ratio($X, $Y, $width:auto) {
+	position: relative;
+	width: $width;
+
+	&:before {
+		display: block;
+		content: "";
+		width: 100%;
+		padding-top: ($Y / $X) * 100%;
+	}
+
+	.ratio__box {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+}
+
+// ====================================================================
+// ASPECT RATIO
+
+
+// TRIANGLE
+// ====================================================================
+
+@mixin triangle($direction: 'top', $color:#000, $height: 5px, $width:10px) {
+	// Base styles for all triangles
+	border-style: solid;
+	height: 0;
+	width: 0;
+
+	// Cardinal Directions - can't be scalene this way
+	@if($direction=='top') {
+		border-color: transparent transparent $color transparent;
+		border-width: 0 ($width/2) $height ($width/2);
+	}
+
+	@if ($direction=='bottom') {
+		border-color: $color transparent transparent transparent;
+		border-width: $height ($width/2) 0 ($width/2);
+	}
+
+	@if ($direction=='right') {
+		border-color: transparent transparent transparent $color;
+		border-width: ($height/2) 0 ($height/2) $width;
+	}
+
+	@if ($direction=='left') {
+		border-color: transparent $color transparent transparent;
+		border-width: ($height/2) $width ($height/2) 0;
+	}
+
+	// Ordinal Directions - can be scalene this way!
+	@if ($direction=='top-left') {
+		border-color: $color transparent transparent transparent;
+		border-width: $height $width 0 0;
+	}
+
+	@if ($direction=='top-right') {
+		border-color: transparent $color transparent transparent;
+		border-width: 0 $width $height 0;
+	}
+
+	@if ($direction=='bottom-left') {
+		border-color: transparent transparent transparent $color;
+		border-width: $height 0 0 $width;
+	}
+
+	@if ($direction=='bottom-right') {
+		border-color: transparent transparent $color transparent;
+		border-width: 0 0 $height $width;
+	}
+}
+
+// ====================================================================
+// TRIANGLE
+
+
+
+// PLASEHOLDERS
+// ====================================================================
+%ellipsis {
+	display: inline-block;
+	max-width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	word-wrap: normal;
+}
+
+%wrapper {
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+}
+
+// ====================================================================
+// PLASEHOLDERS
+
+
+
+
+@mixin anim($time, $delay) {
+	-webkit-transition: all $time ease $delay;
+	-moz-transition: all $time ease $delay;
+	-ms-transition: all $time ease $delay;
+	-o-transition: all $time ease $delay;
+	transition: all $time ease $delay;
+}
+
+@mixin anim_cubic($time, $delay) {
+	-webkit-transition: all $time cubic-bezier(0.68, -0.55, 0.265, 1.55) $delay;
+	-moz-transition: all $time cubic-bezier(0.68, -0.55, 0.265, 1.55) $delay;
+	-ms-transition: all $time cubic-bezier(0.68, -0.55, 0.265, 1.55) $delay;
+	-o-transition: all $time cubic-bezier(0.68, -0.55, 0.265, 1.55) $delay;
+	transition: all $time cubic-bezier(0.68, -0.55, 0.265, 1.55) $delay;
+}
+
+@mixin animate($name, $time, $infinite, $type) {
+	-webkit-animation: $name $time + s $infinite $type;
+	-moz-animation: $name $time + s $infinite $type;
+	-o-animation: $name $time + s $infinite $type;
+	animation: $name $time + s $infinite $type;
+}
+
+@mixin rotate($deg) {
+	-moz-transform: rotate($deg);
+	-ms-transform: rotate($deg);
+	-webkit-transform: rotate($deg);
+	-o-transform: rotate($deg);
+	transform: rotate($deg);
+}
+
+@mixin scale($num) {
+	-moz-transform: scale($num);
+	-ms-transform: scale($num);
+	-webkit-transform: scale($num);
+	-o-transform: scale($num);
+	transform: scale($num);
+}
+
+@mixin skew($num) {
+	-webkit-transform: skewX($num);
+	-moz-transform: skewX($num);
+	-ms-transform: skewX($num);
+	-o-transform: skewX($num);
+	transform: skewX($num);
+}
+
+@mixin cnt($h) {
+	display: flex;
+	flex-direction: column;
+	height: $h;
+	text-align: center;
+	align-items: stretch;
+	justify-content: center;
+}

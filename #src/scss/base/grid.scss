@@ -1,0 +1,86 @@
+// Grid
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.container {
+    margin: 0 auto;
+    width: 100%;
+    // padding: 0 15px;
+
+
+    @media (min-width: $md4) {
+        max-width: $cmd4;
+    }
+
+    @media (min-width: $md3) {
+        max-width: $cmd3;
+    }
+
+    @media (min-width: $md2) {
+        max-width: $cmd2;
+    }
+
+    @media (min-width: $md1) {
+        max-width: $cmd1;
+    }
+}
+
+.col {
+    flex: 1 1 0;
+    max-width: 100%;
+}
+
+.col_2 {
+    flex: 0 1 50%;
+    max-width: 50%;
+
+    @media (max-width: $md3) {
+        flex: 100%;
+        max-width: 100%;
+    }
+}
+
+.col_3 {
+    flex: 0 1 calc(100% / 3);
+    max-width: calc(100% / 3);
+
+    @media (max-width: $md3) {
+        flex: 100%;
+        max-width: 100%;
+    }
+}
+
+.col_4 {
+    flex: 0 1 25%;
+    max-width: 25%;
+
+    @media (max-width: $md1) {
+        flex: 0 1 50%;
+        max-width: 50%;
+    }
+
+    @media (max-width: $md3) {
+        flex: 100%;
+        max-width: 100%;
+    }
+}
+
+.col_5 {
+    flex: 0 1 calc(100% / 5);
+    max-width: calc(100% / 5);
+
+    @media (max-width: $md1) {
+        flex: 0 1 calc(100% / 3);
+        max-width: calc(100% / 3);
+    }
+
+    @media (max-width: $md2) {
+        flex: 0 1 calc(100% / 2);
+        max-width: calc(100% / 2);
+    }
+}
+
+// Grid

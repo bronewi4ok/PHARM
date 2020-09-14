@@ -1,0 +1,101 @@
+// DEFAULT
+.abs_center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.bg_center {
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+.flex_center {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-wrap: wrap;
+}
+
+.flex_between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.align_center {
+    display: flex;
+    align-items: center;
+}
+
+.md7_none {
+    @media all and (max-width:767px) {
+        display: none;
+    }
+}
+
+.md7_block {
+    display: none;
+
+    @media all and (max-width:767px) {
+        display: block;
+    }
+
+}
+
+.md9_none {
+    @media all and (max-width:992px) {
+        display: none;
+    }
+}
+
+.md9_block {
+    display: none;
+
+    @media all and (max-width:992px) {
+        display: block;
+    }
+}
+
+.mx_auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.img_fld {
+    width: 100%;
+    height: auto;
+    margin: 0;
+}
+
+.img_ratio {
+    position: relative;
+    overflow: hidden;
+    height: 0;
+
+    >img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        object-fit: cover;
+    }
+}
+
+.div_ratio {
+    position: relative;
+    overflow: hidden;
+    height: 0;
+
+    >div {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
+// DEFAULT

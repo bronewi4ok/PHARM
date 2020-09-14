@@ -1,0 +1,103 @@
+// NORMALIZE
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none !important;
+    list-style: none;
+    // cursor: url('../img/cursor/select.svg'), auto;
+}
+
+html,
+body {
+    box-sizing: border-box !important;
+    background-color: #fff !important;
+    height: 100%;
+    width: 100%;
+    font-size: 100%;
+    position: relative;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.main {
+    flex: 1 0 auto;
+}
+
+.bottom {
+    flex: 0 0 auto;
+}
+
+a,
+input,
+button,
+select,
+textarea {
+    font-family: inherit;
+    font-size: 100%;
+}
+
+button,
+select {
+    text-transform: none;
+}
+
+// button,
+// [type="button"],
+// [type="reset"],
+// [type="submit"] {
+//     appearance: button;
+// }
+
+textarea {
+    resize: none !important;
+    overflow: auto;
+}
+
+input::-ms-clear {
+    display: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+button::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+a,
+a:visited {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: inherit;
+    font-weight: inherit;
+    margin: 0;
+}
+
+img {
+    display: block;
+}
+
+// NORMALIZE

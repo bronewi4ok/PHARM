@@ -1,0 +1,36 @@
+@mixin font($font_name, $file_name, $weight, $style) {
+	@font-face {
+		font-family: $font_name;
+		font-display: swap;
+		src: url("../fonts/#{$file_name}.woff") format("woff"), url("../fonts/#{$file_name}.woff2") format("woff2");
+		font-weight: #{$weight};
+		font-style: #{$style};
+	}
+}
+@import "fonts";
+
+
+// base
+@import "./base/variables.scss";
+@import "./base/mixins.scss";
+@import "./base/normalize.scss";
+@import "./base/default.scss";
+@import "./base/grid.scss";
+
+
+// modulles
+@import "./modules/ui.scss";
+@import "./modules/sliders.scss";
+
+
+// templates
+@import "./temlates/header.scss";
+@import "./temlates/navbar.scss";
+@import "./temlates/gotop.scss";
+@import "./temlates/footer.scss";
+
+
+// pages
+@import "./pages/page.scss";
+
+

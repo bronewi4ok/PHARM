@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+		<title>SVG stack preview | svg-sprite</title>
+		<style>@charset "UTF-8";body{padding:0;margin:0;color:#666;background:#fafafa;font-family:Arial,Helvetica,sans-serif;font-size:1em;line-height:1.4}header{display:block;padding:3em 3em 2em 3em;background-color:#fff}header p{margin:2em 0 0 0}section{border-top:1px solid #eee;padding:2em 3em 0 3em}section ul{margin:0;padding:0}section li{display:inline;display:inline-block;background-color:#fff;position:relative;margin:0 2em 2em 0;vertical-align:top;border:1px solid #ccc;padding:1em 1em 3em 1em;cursor:default}.icon-box{margin:0;width:144px;height:144px;position:relative;background:#ccc url("data:image/gif;base64,R0lGODlhDAAMAIAAAMzMzP///yH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4wLWMwNjEgNjQuMTQwOTQ5LCAyMDEwLzEyLzA3LTEwOjU3OjAxICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1LjEgV2luZG93cyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozQjk4OTI0MUY5NTIxMUUyQkJDMEI5NEFEM0Y1QTYwQyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozQjk4OTI0MkY5NTIxMUUyQkJDMEI5NEFEM0Y1QTYwQyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjNCOTg5MjNGRjk1MjExRTJCQkMwQjk0QUQzRjVBNjBDIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjNCOTg5MjQwRjk1MjExRTJCQkMwQjk0QUQzRjVBNjBDIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Af/+/fz7+vn49/b19PPy8fDv7u3s6+rp6Ofm5eTj4uHg397d3Nva2djX1tXU09LR0M/OzczLysnIx8bFxMPCwcC/vr28u7q5uLe2tbSzsrGwr66trKuqqainpqWko6KhoJ+enZybmpmYl5aVlJOSkZCPjo2Mi4qJiIeGhYSDgoGAf359fHt6eXh3dnV0c3JxcG9ubWxramloZ2ZlZGNiYWBfXl1cW1pZWFdWVVRTUlFQT05NTEtKSUhHRkVEQ0JBQD8+PTw7Ojk4NzY1NDMyMTAvLi0sKyopKCcmJSQjIiEgHx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQAAIfkEAAAAAAAsAAAAAAwADAAAAhaEH6mHmmzcgzJAUG/NVGrfOZ8YLlABADs=") top left repeat;border:1px solid #ccc;display:table-cell;vertical-align:middle;text-align:center}.icon{display:inline;display:inline-block}h1{margin-top:0}h2{margin:0;padding:0;font-size:1em;font-weight:normal;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;position:absolute;left:1em;right:1em;bottom:1em}footer{display:block;margin:0;padding:0 3em 3em 3em}footer p{margin:0;font-size:.7em}footer a{color:#0f7595;margin-left:0}</style>
+		
+<!--
+	
+Sprite shape dimensions
+====================================================================================================
+You will need to set the sprite shape dimensions via CSS when you use them as stack SVGs, otherwise
+they would become a huge 100% in size. You may use the following dimension classes for doing so.
+They might well be outsourced to an external stylesheet of course.
+
+-->
+
+<style type="text/css">
+	.svg-01_immune-dims { width: 108.1px; height: 94.4px; }
+	.svg-02_stress_and_fatigue-dims { width: 108.1px; height: 94.4px; }
+	.svg-04_nose-dims { width: 108.1px; height: 94.4px; }
+	.svg-05_eyes_and_visual_acuity-dims { width: 108.1px; height: 94.4px; }
+	.svg-06_beauty_and_health-dims { width: 108.1px; height: 94.4px; }
+	.svg-07_sport-dims { width: 108.1px; height: 94.4px; }
+	.svg-08_detox-dims { width: 108.1px; height: 100.7px; }
+	.svg-09_polyvitamin-dims { width: 108.1px; height: 100.7px; }
+	.svg-10_monovitamin-dims { width: 108.1px; height: 100.7px; }
+	.svg-11_gastro-dims { width: 108.1px; height: 100.7px; }
+	.svg-12_liver-dims { width: 108.1px; height: 100.7px; }
+	.svg-13_memory_brain-dims { width: 108.1px; height: 100.7px; }
+	.svg-14_insomnia-dims { width: 108.1px; height: 100.7px; }
+	.svg-15_allergy-dims { width: 108.1px; height: 100.7px; }
+	.svg-16_heart-dims { width: 108.1px; height: 100.7px; }
+	.svg-17_anemia-dims { width: 108.1px; height: 100.7px; }
+	.svg-18_pregnancy-dims { width: 108.1px; height: 100.7px; }
+	.svg-19_malepower-dims { width: 108.1px; height: 100.7px; }
+	.svg-20_bones-dims { width: 108.1px; height: 107.3px; }
+	.svg-21_parasites-dims { width: 108.1px; height: 100.7px; }
+	.svg-22_vegans-dims { width: 108.1px; height: 100.7px; }
+	.svg-23_musthaveathome-dims { width: 108.1px; height: 100.7px; }
+	.svg-24_antiseptic-dims { width: 108.1px; height: 107.3px; }
+	.svg-25_kids-dims { width: 108.1px; height: 107.3px; }
+	.svg-cart-dims { width: 63px; height: 61px; }
+	.svg-facebook-dims { width: 112.2px; height: 112.2px; }
+	.svg-filter_1-dims { width: 73px; height: 83px; }
+	.svg-filter_10-dims { width: 86px; height: 98px; }
+	.svg-filter_11-dims { width: 95px; height: 94px; }
+	.svg-filter_12-dims { width: 117px; height: 84px; }
+	.svg-filter_121-dims { width: 108.1px; height: 94.4px; }
+	.svg-filter_13-dims { width: 80px; height: 96px; }
+	.svg-filter_14-dims { width: 101px; height: 102px; }
+	.svg-filter_15-dims { width: 57px; height: 97px; }
+	.svg-filter_16-dims { width: 70px; height: 99px; }
+	.svg-filter_17-dims { width: 72px; height: 100px; }
+	.svg-filter_18-dims { width: 88px; height: 87px; }
+	.svg-filter_19-dims { width: 82px; height: 82px; }
+	.svg-filter_2-dims { width: 78px; height: 90px; }
+	.svg-filter_20-dims { width: 85px; height: 100px; }
+	.svg-filter_21-dims { width: 77px; height: 77px; }
+	.svg-filter_22-dims { width: 83px; height: 102px; }
+	.svg-filter_23-dims { width: 121px; height: 106px; }
+	.svg-filter_24-dims { width: 64px; height: 106px; }
+	.svg-filter_25-dims { width: 82px; height: 104px; }
+	.svg-filter_3-dims { width: 67px; height: 83px; }
+	.svg-filter_4-dims { width: 69px; height: 81px; }
+	.svg-filter_5-dims { width: 92px; height: 91px; }
+	.svg-filter_6-dims { width: 56px; height: 91px; }
+	.svg-filter_7-dims { width: 70px; height: 91px; }
+	.svg-filter_8-dims { width: 91px; height: 98px; }
+	.svg-filter_9-dims { width: 88px; height: 89px; }
+	.svg-instagram-dims { width: 75.8px; height: 74.9px; }
+	.svg-mail-dims { width: 483.3px; height: 483.3px; }
+	.svg-phone-dims { width: 26.8px; height: 26.8px; }
+	.svg-telegram-dims { width: 512px; height: 512px; }
+	.svg-user-dims { width: 512px; height: 512px; }
+	.svg-youtube-dims { width: 473.93px; height: 473.93px; }
+</style>
+
+<!--
+====================================================================================================
+-->
+
+	</head>
+	<body>
+		<header>
+			<h1>SVG stack preview</h1>
+			<p>This preview features an SVG stack. Please have a look at the HTML source for further details and be aware of the following constraints:</p>
+			<ul>
+				<li>Your browser has to <a href="http://caniuse.com/#feat=svg-fragment" target="_blank">support SVG fragment identifiers</a> for SVG stacks to work.</li>
+				<li>Support for SVG fragment identifiers hasn't always been that decent. For older browsers you will have to use some prolyfill like <a href="https://github.com/preciousforever/SVG-Stacker/blob/master/fixsvgstack.jquery.js" target="_blank">fixsvgstack.jquery.js</a>.</li>
+			</ul>
+		</header>
+		<section>
+			
+<!--
+	
+SVG stack
+====================================================================================================
+These SVG images make use of fragment identifiers (IDs) to reference certain portions of the
+external sprite. By default, all shapes inside the sprite are hidden by CSS. The `:target` pseudo
+selector is used to show the very shape that is referenced by the fragment identifier.  
+
+-->
+
+			<ul>
+				
+				<li title="01_immune">
+					<div class="icon-box">
+						
+						<!-- 01_immune -->
+						<img src="../icons/icons.svg#01_immune" class="svg-01_immune-dims" alt="01_immune"/>
+						
+					</div>
+					<h2>01_immune</h2>
+				</li>
+				<li title="02_stress_and_fatigue">
+					<div class="icon-box">
+						
+						<!-- 02_stress_and_fatigue -->
+						<img src="../icons/icons.svg#02_stress_and_fatigue" class="svg-02_stress_and_fatigue-dims" alt="02_stress_and_fatigue"/>
+						
+					</div>
+					<h2>02_stress_and_fatigue</h2>
+				</li>
+				<li title="04_nose">
+					<div class="icon-box">
+						
+						<!-- 04_nose -->
+						<img src="../icons/icons.svg#04_nose" class="svg-04_nose-dims" alt="04_nose"/>
+						
+					</div>
+					<h2>04_nose</h2>
+				</li>
+				<li title="05_eyes_and_visual_acuity">
+					<div class="icon-box">
+						
+						<!-- 05_eyes_and_visual_acuity -->
+						<img src="../icons/icons.svg#05_eyes_and_visual_acuity" class="svg-05_eyes_and_visual_acuity-dims" alt="05_eyes_and_visual_acuity"/>
+						
+					</div>
+					<h2>05_eyes_and_visual_acuity</h2>
+				</li>
+				<li title="06_beauty_and_health">
+					<div class="icon-box">
+						
+						<!-- 06_beauty_and_health -->
+						<img src="../icons/icons.svg#06_beauty_and_health" class="svg-06_beauty_and_health-dims" alt="06_beauty_and_health"/>
+						
+					</div>
+					<h2>06_beauty_and_health</h2>
+				</li>
+				<li title="07_sport">
+					<div class="icon-box">
+						
+						<!-- 07_sport -->
+						<img src="../icons/icons.svg#07_sport" class="svg-07_sport-dims" alt="07_sport"/>
+						
+					</div>
+					<h2>07_sport</h2>
+				</li>
+				<li title="08_detox">
+					<div class="icon-box">
+						
+						<!-- 08_detox -->
+						<img src="../icons/icons.svg#08_detox" class="svg-08_detox-dims" alt="08_detox"/>
+						
+					</div>
+					<h2>08_detox</h2>
+				</li>
+				<li title="09_polyvitamin">
+					<div class="icon-box">
+						
+						<!-- 09_polyvitamin -->
+						<img src="../icons/icons.svg#09_polyvitamin" class="svg-09_polyvitamin-dims" alt="09_polyvitamin"/>
+						
+					</div>
+					<h2>09_polyvitamin</h2>
+				</li>
+				<li title="10_monovitamin">
+					<div class="icon-box">
+						
+						<!-- 10_monovitamin -->
+						<img src="../icons/icons.svg#10_monovitamin" class="svg-10_monovitamin-dims" alt="10_monovitamin"/>
+						
+					</div>
+					<h2>10_monovitamin</h2>
+				</li>
+				<li title="11_gastro">
+					<div class="icon-box">
+						
+						<!-- 11_gastro -->
+						<img src="../icons/icons.svg#11_gastro" class="svg-11_gastro-dims" alt="11_gastro"/>
+						
+					</div>
+					<h2>11_gastro</h2>
+				</li>
+				<li title="12_liver">
+					<div class="icon-box">
+						
+						<!-- 12_liver -->
+						<img src="../icons/icons.svg#12_liver" class="svg-12_liver-dims" alt="12_liver"/>
+						
+					</div>
+					<h2>12_liver</h2>
+				</li>
+				<li title="13_memory_brain">
+					<div class="icon-box">
+						
+						<!-- 13_memory_brain -->
+						<img src="../icons/icons.svg#13_memory_brain" class="svg-13_memory_brain-dims" alt="13_memory_brain"/>
+						
+					</div>
+					<h2>13_memory_brain</h2>
+				</li>
+				<li title="14_insomnia">
+					<div class="icon-box">
+						
+						<!-- 14_insomnia -->
+						<img src="../icons/icons.svg#14_insomnia" class="svg-14_insomnia-dims" alt="14_insomnia"/>
+						
+					</div>
+					<h2>14_insomnia</h2>
+				</li>
+				<li title="15_allergy">
+					<div class="icon-box">
+						
+						<!-- 15_allergy -->
+						<img src="../icons/icons.svg#15_allergy" class="svg-15_allergy-dims" alt="15_allergy"/>
+						
+					</div>
+					<h2>15_allergy</h2>
+				</li>
+				<li title="16_heart">
+					<div class="icon-box">
+						
+						<!-- 16_heart -->
+						<img src="../icons/icons.svg#16_heart" class="svg-16_heart-dims" alt="16_heart"/>
+						
+					</div>
+					<h2>16_heart</h2>
+				</li>
+				<li title="17_anemia">
+					<div class="icon-box">
+						
+						<!-- 17_anemia -->
+						<img src="../icons/icons.svg#17_anemia" class="svg-17_anemia-dims" alt="17_anemia"/>
+						
+					</div>
+					<h2>17_anemia</h2>
+				</li>
+				<li title="18_pregnancy">
+					<div class="icon-box">
+						
+						<!-- 18_pregnancy -->
+						<img src="../icons/icons.svg#18_pregnancy" class="svg-18_pregnancy-dims" alt="18_pregnancy"/>
+						
+					</div>
+					<h2>18_pregnancy</h2>
+				</li>
+				<li title="19_malepower">
+					<div class="icon-box">
+						
+						<!-- 19_malepower -->
+						<img src="../icons/icons.svg#19_malepower" class="svg-19_malepower-dims" alt="19_malepower"/>
+						
+					</div>
+					<h2>19_malepower</h2>
+				</li>
+				<li title="20_bones">
+					<div class="icon-box">
+						
+						<!-- 20_bones -->
+						<img src="../icons/icons.svg#20_bones" class="svg-20_bones-dims" alt="20_bones"/>
+						
+					</div>
+					<h2>20_bones</h2>
+				</li>
+				<li title="21_parasites">
+					<div class="icon-box">
+						
+						<!-- 21_parasites -->
+						<img src="../icons/icons.svg#21_parasites" class="svg-21_parasites-dims" alt="21_parasites"/>
+						
+					</div>
+					<h2>21_parasites</h2>
+				</li>
+				<li title="22_vegans">
+					<div class="icon-box">
+						
+						<!-- 22_vegans -->
+						<img src="../icons/icons.svg#22_vegans" class="svg-22_vegans-dims" alt="22_vegans"/>
+						
+					</div>
+					<h2>22_vegans</h2>
+				</li>
+				<li title="23_musthaveathome">
+					<div class="icon-box">
+						
+						<!-- 23_musthaveathome -->
+						<img src="../icons/icons.svg#23_musthaveathome" class="svg-23_musthaveathome-dims" alt="23_musthaveathome"/>
+						
+					</div>
+					<h2>23_musthaveathome</h2>
+				</li>
+				<li title="24_antiseptic">
+					<div class="icon-box">
+						
+						<!-- 24_antiseptic -->
+						<img src="../icons/icons.svg#24_antiseptic" class="svg-24_antiseptic-dims" alt="24_antiseptic"/>
+						
+					</div>
+					<h2>24_antiseptic</h2>
+				</li>
+				<li title="25_kids">
+					<div class="icon-box">
+						
+						<!-- 25_kids -->
+						<img src="../icons/icons.svg#25_kids" class="svg-25_kids-dims" alt="25_kids"/>
+						
+					</div>
+					<h2>25_kids</h2>
+				</li>
+				<li title="cart">
+					<div class="icon-box">
+						
+						<!-- cart -->
+						<img src="../icons/icons.svg#cart" class="svg-cart-dims" alt="cart"/>
+						
+					</div>
+					<h2>cart</h2>
+				</li>
+				<li title="facebook">
+					<div class="icon-box">
+						
+						<!-- facebook -->
+						<img src="../icons/icons.svg#facebook" class="svg-facebook-dims" alt="facebook"/>
+						
+					</div>
+					<h2>facebook</h2>
+				</li>
+				<li title="filter_1">
+					<div class="icon-box">
+						
+						<!-- filter_1 -->
+						<img src="../icons/icons.svg#filter_1" class="svg-filter_1-dims" alt="filter_1"/>
+						
+					</div>
+					<h2>filter_1</h2>
+				</li>
+				<li title="filter_10">
+					<div class="icon-box">
+						
+						<!-- filter_10 -->
+						<img src="../icons/icons.svg#filter_10" class="svg-filter_10-dims" alt="filter_10"/>
+						
+					</div>
+					<h2>filter_10</h2>
+				</li>
+				<li title="filter_11">
+					<div class="icon-box">
+						
+						<!-- filter_11 -->
+						<img src="../icons/icons.svg#filter_11" class="svg-filter_11-dims" alt="filter_11"/>
+						
+					</div>
+					<h2>filter_11</h2>
+				</li>
+				<li title="filter_12">
+					<div class="icon-box">
+						
+						<!-- filter_12 -->
+						<img src="../icons/icons.svg#filter_12" class="svg-filter_12-dims" alt="filter_12"/>
+						
+					</div>
+					<h2>filter_12</h2>
+				</li>
+				<li title="filter_121">
+					<div class="icon-box">
+						
+						<!-- filter_121 -->
+						<img src="../icons/icons.svg#filter_121" class="svg-filter_121-dims" alt="filter_121"/>
+						
+					</div>
+					<h2>filter_121</h2>
+				</li>
+				<li title="filter_13">
+					<div class="icon-box">
+						
+						<!-- filter_13 -->
+						<img src="../icons/icons.svg#filter_13" class="svg-filter_13-dims" alt="filter_13"/>
+						
+					</div>
+					<h2>filter_13</h2>
+				</li>
+				<li title="filter_14">
+					<div class="icon-box">
+						
+						<!-- filter_14 -->
+						<img src="../icons/icons.svg#filter_14" class="svg-filter_14-dims" alt="filter_14"/>
+						
+					</div>
+					<h2>filter_14</h2>
+				</li>
+				<li title="filter_15">
+					<div class="icon-box">
+						
+						<!-- filter_15 -->
+						<img src="../icons/icons.svg#filter_15" class="svg-filter_15-dims" alt="filter_15"/>
+						
+					</div>
+					<h2>filter_15</h2>
+				</li>
+				<li title="filter_16">
+					<div class="icon-box">
+						
+						<!-- filter_16 -->
+						<img src="../icons/icons.svg#filter_16" class="svg-filter_16-dims" alt="filter_16"/>
+						
+					</div>
+					<h2>filter_16</h2>
+				</li>
+				<li title="filter_17">
+					<div class="icon-box">
+						
+						<!-- filter_17 -->
+						<img src="../icons/icons.svg#filter_17" class="svg-filter_17-dims" alt="filter_17"/>
+						
+					</div>
+					<h2>filter_17</h2>
+				</li>
+				<li title="filter_18">
+					<div class="icon-box">
+						
+						<!-- filter_18 -->
+						<img src="../icons/icons.svg#filter_18" class="svg-filter_18-dims" alt="filter_18"/>
+						
+					</div>
+					<h2>filter_18</h2>
+				</li>
+				<li title="filter_19">
+					<div class="icon-box">
+						
+						<!-- filter_19 -->
+						<img src="../icons/icons.svg#filter_19" class="svg-filter_19-dims" alt="filter_19"/>
+						
+					</div>
+					<h2>filter_19</h2>
+				</li>
+				<li title="filter_2">
+					<div class="icon-box">
+						
+						<!-- filter_2 -->
+						<img src="../icons/icons.svg#filter_2" class="svg-filter_2-dims" alt="filter_2"/>
+						
+					</div>
+					<h2>filter_2</h2>
+				</li>
+				<li title="filter_20">
+					<div class="icon-box">
+						
+						<!-- filter_20 -->
+						<img src="../icons/icons.svg#filter_20" class="svg-filter_20-dims" alt="filter_20"/>
+						
+					</div>
+					<h2>filter_20</h2>
+				</li>
+				<li title="filter_21">
+					<div class="icon-box">
+						
+						<!-- filter_21 -->
+						<img src="../icons/icons.svg#filter_21" class="svg-filter_21-dims" alt="filter_21"/>
+						
+					</div>
+					<h2>filter_21</h2>
+				</li>
+				<li title="filter_22">
+					<div class="icon-box">
+						
+						<!-- filter_22 -->
+						<img src="../icons/icons.svg#filter_22" class="svg-filter_22-dims" alt="filter_22"/>
+						
+					</div>
+					<h2>filter_22</h2>
+				</li>
+				<li title="filter_23">
+					<div class="icon-box">
+						
+						<!-- filter_23 -->
+						<img src="../icons/icons.svg#filter_23" class="svg-filter_23-dims" alt="filter_23"/>
+						
+					</div>
+					<h2>filter_23</h2>
+				</li>
+				<li title="filter_24">
+					<div class="icon-box">
+						
+						<!-- filter_24 -->
+						<img src="../icons/icons.svg#filter_24" class="svg-filter_24-dims" alt="filter_24"/>
+						
+					</div>
+					<h2>filter_24</h2>
+				</li>
+				<li title="filter_25">
+					<div class="icon-box">
+						
+						<!-- filter_25 -->
+						<img src="../icons/icons.svg#filter_25" class="svg-filter_25-dims" alt="filter_25"/>
+						
+					</div>
+					<h2>filter_25</h2>
+				</li>
+				<li title="filter_3">
+					<div class="icon-box">
+						
+						<!-- filter_3 -->
+						<img src="../icons/icons.svg#filter_3" class="svg-filter_3-dims" alt="filter_3"/>
+						
+					</div>
+					<h2>filter_3</h2>
+				</li>
+				<li title="filter_4">
+					<div class="icon-box">
+						
+						<!-- filter_4 -->
+						<img src="../icons/icons.svg#filter_4" class="svg-filter_4-dims" alt="filter_4"/>
+						
+					</div>
+					<h2>filter_4</h2>
+				</li>
+				<li title="filter_5">
+					<div class="icon-box">
+						
+						<!-- filter_5 -->
+						<img src="../icons/icons.svg#filter_5" class="svg-filter_5-dims" alt="filter_5"/>
+						
+					</div>
+					<h2>filter_5</h2>
+				</li>
+				<li title="filter_6">
+					<div class="icon-box">
+						
+						<!-- filter_6 -->
+						<img src="../icons/icons.svg#filter_6" class="svg-filter_6-dims" alt="filter_6"/>
+						
+					</div>
+					<h2>filter_6</h2>
+				</li>
+				<li title="filter_7">
+					<div class="icon-box">
+						
+						<!-- filter_7 -->
+						<img src="../icons/icons.svg#filter_7" class="svg-filter_7-dims" alt="filter_7"/>
+						
+					</div>
+					<h2>filter_7</h2>
+				</li>
+				<li title="filter_8">
+					<div class="icon-box">
+						
+						<!-- filter_8 -->
+						<img src="../icons/icons.svg#filter_8" class="svg-filter_8-dims" alt="filter_8"/>
+						
+					</div>
+					<h2>filter_8</h2>
+				</li>
+				<li title="filter_9">
+					<div class="icon-box">
+						
+						<!-- filter_9 -->
+						<img src="../icons/icons.svg#filter_9" class="svg-filter_9-dims" alt="filter_9"/>
+						
+					</div>
+					<h2>filter_9</h2>
+				</li>
+				<li title="instagram">
+					<div class="icon-box">
+						
+						<!-- instagram -->
+						<img src="../icons/icons.svg#instagram" class="svg-instagram-dims" alt="instagram"/>
+						
+					</div>
+					<h2>instagram</h2>
+				</li>
+				<li title="mail">
+					<div class="icon-box">
+						
+						<!-- mail -->
+						<img src="../icons/icons.svg#mail" class="svg-mail-dims" alt="mail"/>
+						
+					</div>
+					<h2>mail</h2>
+				</li>
+				<li title="phone">
+					<div class="icon-box">
+						
+						<!-- phone -->
+						<img src="../icons/icons.svg#phone" class="svg-phone-dims" alt="phone"/>
+						
+					</div>
+					<h2>phone</h2>
+				</li>
+				<li title="telegram">
+					<div class="icon-box">
+						
+						<!-- telegram -->
+						<img src="../icons/icons.svg#telegram" class="svg-telegram-dims" alt="telegram"/>
+						
+					</div>
+					<h2>telegram</h2>
+				</li>
+				<li title="user">
+					<div class="icon-box">
+						
+						<!-- user -->
+						<img src="../icons/icons.svg#user" class="svg-user-dims" alt="user"/>
+						
+					</div>
+					<h2>user</h2>
+				</li>
+				<li title="youtube">
+					<div class="icon-box">
+						
+						<!-- youtube -->
+						<img src="../icons/icons.svg#youtube" class="svg-youtube-dims" alt="youtube"/>
+						
+					</div>
+					<h2>youtube</h2>
+				</li>
+			</ul>
+
+<!--
+====================================================================================================
+-->
+
+		</section>
+		<footer>
+			<p>Generated at Mon, 14 Sep 2020 17:45:00 GMT by <a href="https://github.com/jkphl/svg-sprite" target="_blank">svg-sprite</a>.</p>
+		</footer>
+	</body>
+</html>

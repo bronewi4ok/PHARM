@@ -1,0 +1,31 @@
+<!-- HEADER FORM -->
+<form class=" popup mfp-hide mfp-with-anim" id="popup">
+    <div class="form">
+        <div class="popup__title">
+            Обратный звонок
+        </div>
+        <div class="form__item_wrap">
+            <label class="form__label" for="name_1">Ваше имя</label>
+            <input class="form__item" type="text" placeholder="Имя" id="name_1" name="name_1"
+                data-msg="Обязательное поле" required>
+        </div>
+
+        <div class="form__item_wrap">
+            <label class="form__label" for="email_1">Ваш Email</label>
+            <input class="form__item" type="email" placeholder="Email" id="email_1" name="email_1"
+                data-msg="Обязательное поле" data-msg-email="Введите правильный email" data-rule-email="11" required>
+        </div>
+
+        <div class="form__item_wrap">
+            <label class="form__label" for="#tel_1">Ваш телефон:</label>
+            <input class="form__item phone_inp" name="tel_1" id="tel_1" type="tel" placeholder="Введите телефон"
+                data-rule-minlength="11" data-msg-minlength="Не менее 11 символов"
+                data-msg-maxlength="At most fours chars" data-msg-required="Обязательное поле" required />
+        </div>
+
+        <button class="header__btn ripple" type="submit" data-effect="mfp-zoom-in">
+            Заказать звонок
+        </button>
+    </div>
+</form>
+<!-- HEADER FORM -->

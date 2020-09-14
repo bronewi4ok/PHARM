@@ -1,0 +1,133 @@
+.footer {
+    background-color: $_silver_light;
+    min-height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+.footer__middle {
+    flex: 1 1 0;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    @media all and (max-width:$md2) {
+        flex-direction: column;
+    }
+}
+
+.footer__visa {
+    padding: 15px;
+
+    img {
+        margin-left: size(80, 0);
+
+        @media all and (max-width:$md2) {
+            margin: 0;
+        }
+    }
+
+    @media all and (max-width:$md3) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @include flex(1);
+    }
+}
+
+.footer__adress {
+    display: flex;
+    align-items: center;
+    padding: 7px;
+
+    &:hover .footer__text {
+        color: $c_main;
+    }
+
+    img {
+        margin-right: 10px;
+    }
+
+    @media all and (max-width:$md3) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.footer__text {
+    font-family: $f_main;
+    font-weight: 300;
+    font-size: 18px;
+    color: #00559b;
+}
+
+.footer__rights {
+    padding: 7px;
+
+    &:hover .footer__text {
+        color: $c_main;
+    }
+
+    @media all and (max-width:$md3) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.footer__social {
+    padding: 15px;
+
+    @media all and (max-width:$md3) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @include flex(1);
+
+    }
+}
+
+.social {
+    display: flex;
+}
+
+.socail__icon {
+    &:not(:last-child) {
+        padding-right: size(20, 10);
+    }
+
+    img {
+        width: size(50, 45);
+        height: size(50, 45);
+        border-radius: 50%;
+
+        transition: 1s;
+
+        &:hover {
+            transform: rotate(360deg);
+        }
+    }
+
+    .faq {
+        width: size(50, 45);
+        height: size(50, 45);
+        border-radius: 50%;
+        background-color: #e95a0b;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-transform: uppercase;
+        font-family: $f_main;
+        color: #fff;
+        line-height: 1;
+        transition: 1s;
+
+        &:hover {
+            transform: rotate(360deg);
+        }
+    }
+}
